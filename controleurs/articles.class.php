@@ -30,7 +30,6 @@ class Articles {
 
     public function controlVoirArticle($pdo){
 
-    //	if ($_SESSION == true) {
         if (isset($_GET['id'])) { 
     		$this->article = new ArticlesModel();
             $this->result = $this->article->seeArticleBlogger($pdo);
@@ -38,12 +37,10 @@ class Articles {
             return $this->result;
     	}
 
-    //	return $this->result;
     }
 
     public function controlDeleteArticle($pdo) {
 
-    //    if($_SESSION == true && $_GET['id']) {
         if (isset($_GET['id'])) { 
             $this->article = new ArticlesModel();            
             $this->result = $this->article->deleteArticle($pdo);
@@ -51,7 +48,6 @@ class Articles {
             return $this->result;
         }
 
-    //    return $this->result;
     }
 }
 
