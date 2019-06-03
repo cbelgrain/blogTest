@@ -7,7 +7,8 @@
 <!DOCTYPE>
    <html>
     <head>
-       <title><?= $titreSite ?></title>
+        <title><?= $titreSite ?></title>
+        <meta charset="UTF-8" lang="fr">
         <link rel="stylesheet" href="css/bootstrap.css" >
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/boottstrap/bootstrap.min.js"></script>
