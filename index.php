@@ -64,8 +64,8 @@
         		include("vues/compteBlogger.php");
 				break;
 				
-			case "test":
-				include("vues/test.php");
+			case "resultat":
+				include("controleurs/resultat.php");
 				break;
     
     		default:

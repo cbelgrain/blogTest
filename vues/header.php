@@ -30,9 +30,9 @@
                         echo $menu;
                     ?>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" action="search.class.php" method="GET">
+                <form class="form-inline my-2 my-lg-0" action="controleurs/search.class.php" method="GET">
                     <input class="form-control mr-sm-2" type="search" name="text" placeholder="Rechercher dans le site" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" name="send" type="submit">Rechercher</button>
+                    <input class="btn btn-outline-success my-2 my-sm-0" name="send" type="submit" value="Rechercher">
                 </form>
             </div>
             <a class= "user" href="?page=connexion">
