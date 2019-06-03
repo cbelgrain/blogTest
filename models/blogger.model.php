@@ -30,7 +30,6 @@ class Blogger {
 
 	public function getInfosBlogger($pdo){
 
-		include "../controleurs/session.class.php";
 		Session::startSession();
 		$email = Session::getSession('blogger');
 
