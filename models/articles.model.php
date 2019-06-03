@@ -2,7 +2,6 @@
 
 class ArticlesModel {
     
-    private $pdo;
     private $requete;
     private $article;
     private $result;
@@ -65,7 +64,7 @@ class ArticlesModel {
 
         /* requete pr insertion */
 
-        $this->requete = $pdo->prepare("INSERT INTO `articles`(`titre`, `contenu`, `img`, `active`, `id_user`, `id_cat`) 
+        $this->requete = $pdo->prepare("INSERT INTO `articles`(`titre`, `contenu`, `img`, `actif`, `id_user`, `id_cat`) 
                                         VALUES (:titre,
                                                 :contenu,
                                                 'image',

@@ -2,10 +2,8 @@
 
 class CategoriesModel {
     
-    private $pdo;
     private $cat;
     private $result;
-    
     
     public function getCategorie($pdo){
         
