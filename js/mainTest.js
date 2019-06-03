@@ -3,17 +3,18 @@
 var modalBtns = [...document.querySelectorAll(".modalBtn")];
 modalBtns.forEach(function(btn){
   btn.onclick = function() {
-    var modal = btn.getAttribute('data-modal');
+    var modal = btn.getAttribute('open-modal');
     document.getElementById(modal).style.display = "block";
     console.log(modal);
   }
 });
 
-var closeBtns = [...document.querySelectorAll(".close")];
+var closeBtns = [...document.querySelectorAll(".closeBtn")];
 closeBtns.forEach(function(btn){
   btn.onclick = function() {
-    var modal = btn.closest('.modal');
-    document.getElementsByClassName(modal).style.display = "none";
+    var modal = btn.getAttribute('close-modal');
+    document.getElementById(modal).style.display = "none";
+    console.log(modal);
   }
 });
 
