@@ -5,16 +5,15 @@ modalBtns.forEach(function(btn){
   btn.onclick = function() {
     var modal = btn.getAttribute('data-modal');
     document.getElementById(modal).style.display = "block";
+    console.log(modal);
   }
 });
 
 var closeBtns = [...document.querySelectorAll(".close")];
 closeBtns.forEach(function(btn){
   btn.onclick = function() {
-    //var modal = btn.closest('.modal');
-    var modal = btn.getAttribute('data-modal');
-    document.getElementById(modal).style.display = "none";
-    //modal.style.display = "none";
+    var modal = btn.closest('.modal');
+    document.getElementsByClassName(modal).style.display = "none";
   }
 });
 

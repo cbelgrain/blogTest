@@ -27,17 +27,15 @@
 				<td>
 					<a href="?page=artBlogger&id=<?= intval($valeurArt['a_id']) ?>"><i class="fas fa-eye"></i></a>
 					<a href="?page=addArt&id=<?= intval($valeurArt['a_id']) ?>"><i class="fas fa-edit"></i></a>
-					<!-- <a href="#&id=<?= intval($valeurArt['a_id']) ?>" class="modalBtn" data-modal="divModal"><i class="fas fa-trash-alt"></i></a>
-					<div class="modal" id="divModal">
+					<a href="#&id=<?= intval($valeurArt['a_id']) ?>" class="modalBtn" data-modal="divModal<?= ($valeurArt['a_id']) ?>"><i class="fas fa-trash-alt"></i></a>
+					<div class="modal" id="divModal<?= ($valeurArt['a_id']) ?>">
 						<div class="mBox">
 							<p>Voulez-vous supprimer cet article ?</p>
-							<p>Id recup: <?= intval($valeurArt['a_id']) ?></p>
 							<p>Titre: <?= $valeurArt['titre'] ?> </p>
 							<button id="close">Annuler</button>
 							<button><a href="?page=compte&action=sup&id=<?= intval($valeurArt['a_id']) ?>">Supprimer</a></button>
 						</div>
-					</div> -->
-					<a href="?page=compte&action=sup&id=<?= intval($valeurArt['a_id']) ?>" onclick="return confirm('Voulez vous vraiment supprimer cet aritcle ?')"><i class="fas fa-trash-alt"></i></a>
+					</div>
 				</td>
 			</tr>
 			<?php endforeach ?>
