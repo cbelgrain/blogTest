@@ -27,12 +27,12 @@
 				<td>
 					<a href="?page=artBlogger&id=<?= intval($valeurArt['a_id']) ?>"><i class="fas fa-eye"></i></a>
 					<a href="?page=addArt&id=<?= intval($valeurArt['a_id']) ?>"><i class="fas fa-edit"></i></a>
-					<a href="#&id=<?= intval($valeurArt['a_id']) ?>" class="modalBtn" data-modal="divModal<?= ($valeurArt['a_id']) ?>"><i class="fas fa-trash-alt"></i></a>
+					<a href="#&id=<?= intval($valeurArt['a_id']) ?>" class="modalBtn" open-modal="divModal<?= ($valeurArt['a_id']) ?>"><i class="fas fa-trash-alt"></i></a>
 					<div class="modal" id="divModal<?= ($valeurArt['a_id']) ?>">
 						<div class="mBox">
 							<p>Voulez-vous supprimer cet article ?</p>
 							<p>Titre: <?= $valeurArt['titre'] ?> </p>
-							<button id="close">Annuler</button>
+							<button id="close" class="closeBtn" close-modal="divModal<?= ($valeurArt['a_id']) ?>">Annuler</button>
 							<button><a href="?page=compte&action=sup&id=<?= intval($valeurArt['a_id']) ?>">Supprimer</a></button>
 						</div>
 					</div>
