@@ -1,33 +1,23 @@
 'use strict'
 
-//modal
-var modal = document.getElementById("divModal");
+var modalBtns = [...document.querySelectorAll(".modalBtn")];
+modalBtns.forEach(function(btn){
+  btn.onclick = function() {
+    var modal = btn.getAttribute('open-modal');
+    document.getElementById(modal).style.display = "block";
+  }
+});
 
-// bouton pr ouvrir modal
-var modalBtn = document.getElementById("modalBtn");
+var closeBtns = [...document.querySelectorAll(".closeBtn")];
+closeBtns.forEach(function(btn){
+  btn.onclick = function() {
+    var modal = btn.getAttribute('close-modal');
+    document.getElementById(modal).style.display = "none";
+  }
+});
 
-// bouton fermer modal
-var closeBtn = document.getElementById("close");
-
-
-// fonctions
-
-function ouvrirModal(){
-    modal.style.display = "block";
-}
-
-function fermerModal(){
-    modal.style.display = "none";
-}
-
-function fermerModalClavier(e){
-    if(e.keyCode == 27){
-        modal.style.display = "none";
-    }
-}
-
-
-// event
-modalBtn.addEventListener("click", ouvrirModal);
-closeBtn.addEventListener("click", fermerModal);
-window.addEventListener("keydown", fermerModalClavier, false);
+window.onclick = function(event) {
+  if (event.target.className === "modal") {
+    event.target.style.display = "none";
+  }
+};

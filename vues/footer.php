@@ -1,7 +1,6 @@
 		<footer class="footer">
 			<p>Copryright C.Belgrain</p>
 		</footer>
-		<!-- <script src="js/main.js"></script> -->
-		<script src="js/mainTest.js"></script>
+		<script src="js/main.js"></script>
 	</body>
 </html>
