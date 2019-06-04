@@ -1,5 +1,5 @@
 <?php
-
+ini_set('display_errors', 'on'); 
 include("config.php");
 include("../models/bdd.class.php");
 $bddAcces = new BddAccess();

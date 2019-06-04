@@ -2,6 +2,10 @@
     include "controleurs/bloggers.class.php";
     $blogger = new Bloggers();
     $b = $blogger->controleBlogger($pdo);
+    var_dump('<br>');
+    var_dump($b);
+    var_dump('<br>');
+    var_dump(Session::getSession('blogger'));
 ?>
 
 <!DOCTYPE>
