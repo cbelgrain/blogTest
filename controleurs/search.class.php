@@ -1,24 +1,19 @@
 <?php
 
+include "../models/search.model.php";
 
-        if (isset($_GET["send"]) AND $_GET["send"] == "Rechercher") {
-            $_GET["text"] = htmlspecialchars($_GET["text"]);
-            $text = $_GET['text'];
-            $text = trim($text);
-            $text = strip_tags($text);
+class Rechercher {
+
+    private $text;
+    private $result;
+
+    public function controleText($pdo) {
+        if(!empty($_GET['text'])){
+            $this->text = new Search();
+            $this->result = $this->text->getResult($pdo);
         }
-
-        if (isset($text))
-{
-    $text = strtolower($text);
- $select_terme = $pdo->prepare("SELECT titre, contenu FROM articles WHERE titre LIKE ? OR contenu LIKE ?");
- $select_terme->execute(array("%".$text."%", "%".$text."%"));
+        return $this->result;
+    }
 }
-else
-{
- $message = "Vous devez entrer votre requete dans la barre de recherche";
-}
-
-header('Location: ?page=resulat');
 
 ?>
