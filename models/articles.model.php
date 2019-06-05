@@ -2,10 +2,13 @@
 
 class ArticlesModel {
     
-    private $pdo;
     private $requete;
     private $article;
     private $result;
+    private $nbArtParPage = 5;
+    private $pageDebut = '';
+    private $pageFin = '';
+    private $resultPage = '';
     
     public function getArticle($pdo){
         
@@ -26,19 +29,49 @@ class ArticlesModel {
 
     public function getArticlesBlogger($pdo){
 
+        if(isset($_GET['p'])){
+            if($_GET['p'] == 1){
+                $this->pageDebut = $_GET['p'];
+            }
+            else{
+                $this->pageDebut = $_GET['p'] * $this->nbArtParPage;
+            }
+        }
+        else{
+            $this->pageDebut = 1;
+        }
+
+        $this->pageFin = $this->nbArtParPage;
+
         $email = Session::getSession('blogger');
         
         $this->requete = $pdo->prepare("SELECT * FROM `articles`
                                         INNER JOIN users ON articles.id_user = users.u_id
                                         INNER JOIN categories ON articles.id_cat = categories.c_id
                                         WHERE `email` = ?
+                                        LIMIT
                                     ");
+        
+        
 
         $this->requete->execute(array($email));
 
         $this->result = $this->requete->fetchAll();
 
         return $this->result;
+    }
+
+    public function paginationListeArt($pdo){
+
+        $email = Session::getSession('blogger');
+        $this->requete = $pdo->prepare("SELECT COUNT(*) AS nbArt FROM `articles`
+                                        INNER JOIN users ON articles.id_user = users.u_id
+                                        INNER JOIN categories ON articles.id_cat = categories.c_id
+                                        WHERE `email` = ?
+                                    ");
+        $this->requete->execute(array($email));
+        $this->result = $this->requete->fetchAll();
+
     }
 
 
