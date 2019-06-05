@@ -154,3 +154,15 @@ a, a:hover, a:visited{
 #addArt form div:last-child {
 	text-align: right;
 }
+
+
+/* ----------- ARTICLE ----------- */
+#all-articles{
+    margin-bottom: 100px;
+}
+.art{
+    margin-bottom: 15px;
+}
+.p{
+    margin-left: 10px;
+}

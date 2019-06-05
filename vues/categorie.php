@@ -4,7 +4,11 @@
     $cat = $categorie->controleCategorie($pdo);
     $page = $categorie->controlePagination($pdo);
 ?>
-<main class="container">
-    <?= $cat ?>
-    <?= $page[0]['nbArt'] ?>
+<main class="container" id="all-articles">
+    <div>
+        <?= $cat ?>
+    </div>
+    <div class="pagination">
+        <?= $page ?>
+    </div>
 </main>

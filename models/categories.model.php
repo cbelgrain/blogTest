@@ -4,18 +4,22 @@ class CategoriesModel {
     
     private $cat;
     private $result;
-    
+    private $nbArtParPage = 5;
+    private $resultPage = '';
     
     public function getCategorie($pdo){
-        
-        $this->cat = $pdo->query("SELECT * FROM articles WHERE id_cat=".$_GET['cat']); 
-		
-        $this->result = '';
-        
+
+        $pageDebut = (isset($_GET['p'])) ? (($_GET['p'] == 1) ? $_GET['p'] : $_GET['p'] * $this->nbArtParPage) : 1 ;
+        $pageFin = $this->nbArtParPage;
+
+        $this->cat = $pdo->query("SELECT * FROM articles WHERE id_cat=".$_GET['cat'] . " LIMIT " . $pageDebut . "," . $pageFin . " " ); 
+	
 		while ($row = $this->cat->fetch()) {
-			$this->result.= '
-			<a href="?page=article&article='.$row['a_id'].'"><h2>'.$row['titre'].'</h2></a>
-			<div> '.substr($row['contenu'],0, 20).' ...</div>	<br>
+            $this->result.= '
+            <div class="art">
+			    <a href="?page=article&article='.$row['a_id'].'"><h2>'.$row['titre'].'</h2></a>
+                <div> '.substr($row['contenu'],0, 20).' ...</div>
+            </div>
 			';
 		}
         
@@ -32,6 +36,8 @@ class CategoriesModel {
 
 /*    public function getIdCategorie($pdo){
 
+        recup idCat a faire 
+
         $this->cat = $pdo->prepare("SELECT c_id FROM `categories` WHERE nom_cat = ? ");
         $this->cat->execute(array($idCat));
 
@@ -41,20 +47,30 @@ class CategoriesModel {
     }*/
     
     public function getPagination($pdo){
-        $nbArtParPage = 10;
+        
         $this->result = '';
 
-        $this->cat = $pdo->query("SELECT COUNT(*) as nbArt FROM articles WHERE id_cat=".$_GET['cat']); 
+        $this->cat = $pdo->query("SELECT COUNT(*) as nbArt FROM articles WHERE id_cat=".$_GET['cat'] . ""); 
         $this->result = $this->cat->fetchAll();
         
         $nbArt = $this->result[0]['nbArt'];
-        $nbPage = ceil($nbArt / $nbArtParPage);
+        $nbPage = ceil($nbArt / $this->nbArtParPage);
 
-        for ($i = 1 ; $i <= $nbPage ; $i++){
-            echo '<a href="?page=cat&deb=&fin=' . $i . '">' . $i .'</a>';
+        for ($i = 1 ; $i < $nbPage ; $i++){
+
+            if(@$_GET['p'] != $i) {
+            //    echo '<a href="?page=cat&cat='. $_GET['cat'] . '&p=' . $i . '">' . $i .'</a>';
+                $this->resultPage .= '<a class="p" href="?page=cat&cat='. $_GET['cat'] . '&p=' . $i . '">' . $i .'</a>';
+            }
+            else {
+            //    echo '<b>' . $i . '</b>';
+                $this->resultPage .= '<b class="p">' . $i . '</b>';
+            }
+            
         }
-        var_dump(($this->result));
-        return $this->result;
+
+    //    return $this->result;
+        return $this->resultPage;
         
     }
 }
