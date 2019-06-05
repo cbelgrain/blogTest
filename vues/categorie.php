@@ -2,8 +2,9 @@
 	include "controleurs/categories.class.php";
     $categorie = new Categories();
     $cat = $categorie->controleCategorie($pdo);
-    //$cat = $categorie->getPagination($pdo);
+    $page = $categorie->controlePagination($pdo);
 ?>
 <main class="container">
-	<?= $cat['count(*)'] ?>
+    <?= $cat ?>
+    <?= $page[0]['nbArt'] ?>
 </main>

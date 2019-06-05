@@ -12,14 +12,23 @@ class Categories {
         
         if(isset($_GET['page'])){
             $this->categorie = new CategoriesModel();
-            $this->result = $this->categorie->getPagination($pdo);
+            $this->result = $this->categorie->getCategorie($pdo);
         }
 
         return $this->result;
         
     }
 
-        public function controleCatBlogger($pdo){
+    public function controlePagination($pdo){
+        if(isset($_GET['page'])){
+            $this->categorie = new CategoriesModel();
+            $this->result = $this->categorie->getPagination($pdo);
+        }
+
+        return $this->result;
+    }
+
+    public function controleCatBlogger($pdo){
 
     	$this->categorie = new CategoriesModel();
     	$this->result = $this->categorie->listeCategories($pdo);
