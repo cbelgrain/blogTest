@@ -12,7 +12,7 @@ class Categories {
         
         if(isset($_GET['page'])){
             $this->categorie = new CategoriesModel();
-            $this->result = $this->categorie->getCategorie($pdo);
+            $this->result = $this->categorie->getPagination($pdo);
         }
 
         return $this->result;

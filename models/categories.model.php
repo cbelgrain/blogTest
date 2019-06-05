@@ -41,6 +41,16 @@ class CategoriesModel {
         return $this->result;
     }
     
+    public function getPagination($pdo){
+
+        $this->cat = $pdo->query("SELECT COUNT(*) FROM articles WHERE id_cat=".$_GET['cat']); 
+
+        $this->result = $this->cat->fetchAll();
+        
+        var_dump(($this->result));
+        return $this->result;
+        
+    }
 }
 
 ?>
