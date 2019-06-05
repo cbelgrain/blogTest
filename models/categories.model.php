@@ -32,19 +32,6 @@ class CategoriesModel {
         $this->result = $this->cat->fetchAll();
         return $this->result;
     }
-
-
-/*    public function getIdCategorie($pdo){
-
-        recup idCat a faire 
-
-        $this->cat = $pdo->prepare("SELECT c_id FROM `categories` WHERE nom_cat = ? ");
-        $this->cat->execute(array($idCat));
-
-        $this->result = $this->cat->fetchAll();
-
-        return $this->result;
-    }*/
     
     public function getPagination($pdo){
         
@@ -59,17 +46,14 @@ class CategoriesModel {
         for ($i = 1 ; $i < $nbPage ; $i++){
 
             if(@$_GET['p'] != $i) {
-            //    echo '<a href="?page=cat&cat='. $_GET['cat'] . '&p=' . $i . '">' . $i .'</a>';
                 $this->resultPage .= '<a class="p" href="?page=cat&cat='. $_GET['cat'] . '&p=' . $i . '">' . $i .'</a>';
             }
             else {
-            //    echo '<b>' . $i . '</b>';
                 $this->resultPage .= '<b class="p">' . $i . '</b>';
             }
             
         }
 
-    //    return $this->result;
         return $this->resultPage;
         
     }
