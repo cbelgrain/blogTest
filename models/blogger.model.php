@@ -30,7 +30,6 @@ class Blogger {
 
 	public function getInfosBlogger($pdo){
 
-		include "../controleurs/session.class.php";
 		Session::startSession();
 		$email = Session::getSession('blogger');
 
@@ -38,8 +37,6 @@ class Blogger {
 		$this->blogger->execute(array($email));
 
 		$this->result = $this->blogger->fetchAll();
-
-		var_dump($this->resultat);
 
 		return $this->result;
 

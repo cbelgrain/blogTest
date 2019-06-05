@@ -27,9 +27,8 @@ class Connexion {
 			$this->connexion = new ConnexionModel();
 			$this->result = $this->connexion->seConnecter($pdo);
 
-		}
-
-		return $this->result;
+			return $this->result;
+		}	
 
 	}
 

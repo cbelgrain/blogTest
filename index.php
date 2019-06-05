@@ -63,10 +63,6 @@
         	case "compte":
         		include("vues/compteBlogger.php");
 				break;
-				
-			case "test":
-				include("vues/test.php");
-				break;
     
     		default:
         		include("vues/accueil.php");
