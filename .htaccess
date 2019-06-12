@@ -1,0 +1,33 @@
+# masquer erreurs php
+
+php_flag display_startup_errors on
+php_flag display_errors on
+php_flag html_errors on
+
+
+
+# enable PHP error logging
+
+php_flag  log_errors on
+php_value error_log  E:\cours\wamp\uWamp_cours\www\blog_logs\PHP_errors.log
+
+
+
+# masquer fichier
+
+<Filesmatch "\.(logs)$">
+    Order allow,deny
+    Deny from all
+</Filesmatch>
+
+
+
+# re ecriture url
+
+RewriteEngine on
+
+RewriteRule ^inscription$ index.php?page=inscription [L]
+RewriteRule ^connexion$ index.php?page=connexion [L]
+
+RewriteRule ^cat-([a-zA-Z0-9\_]+)-([0-9]+)$ index.php?page=cat&nom=$1&cat=$2 [L]
+RewriteRule ^article-([a-zA-Z0-9\_]+)-([0-9]+)$ index.php?page=article&nom=$1&article=$2 [L]

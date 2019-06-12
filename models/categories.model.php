@@ -15,7 +15,7 @@ class CategoriesModel {
         
 		while ($row = $this->cat->fetch()) {
 			$this->result.= '
-			<a href="?page=article&article='.$row['a_id'].'"><h2>'.$row['titre'].'</h2></a>
+			<a href=""article-'.str_replace(" ", "_", $row['titre']).'-'.$row['a_id'].'"><h2>'.$row['titre'].'</h2></a>
 			<div> '.substr($row['contenu'],0, 20).' ...</div>	<br>
 			';
 		}
@@ -31,15 +31,15 @@ class CategoriesModel {
     }
 
 
-    public function getIdCategorie($pdo){
+    // public function getIdCategorie($pdo){
 
-        $this->cat = $pdo->prepare("SELECT c_id FROM `categories` WHERE nom_cat = ? ");
-        $this->cat->execute(array($idCat));
+    //     $this->cat = $pdo->prepare("SELECT c_id FROM `categories` WHERE nom_cat = ? ");
+    //     $this->cat->execute(array($idCat));
 
-        $this->result = $this->cat->fetchAll();
+    //     $this->result = $this->cat->fetchAll();
 
-        return $this->result;
-    }
+    //     return $this->result;
+    // }
     
 }
 

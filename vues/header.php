@@ -47,7 +47,7 @@
         <p class="blogger">Salut <?= $b[0]['prenom'] . " "?><i class="far fa-grin-beam"></i></p>
             <?php } else { ?>
                 <div class="connect">
-                    <a href="?page=inscription">Inscription</a>
+                    <a href="inscription">Inscription</a>
                     <a href="?page=connexion"> / Connexion</a>
                 </div>
         </nav>
