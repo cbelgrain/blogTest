@@ -31,15 +31,15 @@ class CategoriesModel {
     }
 
 
-    public function getIdCategorie($pdo){
+    // public function getIdCategorie($pdo){
 
-        $this->cat = $pdo->prepare("SELECT c_id FROM `categories` WHERE nom_cat = ? ");
-        $this->cat->execute(array($idCat));
+    //     $this->cat = $pdo->prepare("SELECT c_id FROM `categories` WHERE nom_cat = ? ");
+    //     $this->cat->execute(array($idCat));
 
-        $this->result = $this->cat->fetchAll();
+    //     $this->result = $this->cat->fetchAll();
 
-        return $this->result;
-    }
+    //     return $this->result;
+    // }
     
 }
 
